@@ -1,3 +1,9 @@
+import DesignPatterns.DecoratorPattern.BasePizza.AbstractBasePizza;
+import DesignPatterns.DecoratorPattern.BasePizza.FarmhousePizza;
+import DesignPatterns.DecoratorPattern.BasePizza.MargheritaPizza;
+import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraCheese;
+import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraMushroom;
+import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraOregano;
 import DesignPatterns.ObserverPattern.Observable.IObservable;
 import DesignPatterns.ObserverPattern.Observable.IPhoneStockObservers;
 import DesignPatterns.ObserverPattern.Observable.MacbookStockObservers;
@@ -13,23 +19,29 @@ public class Main {
 //        Vehicle vehicle = new OffroadVehicle();
 //        vehicle.drive();
 //        // dummy commit
-        IObservable iPhoneStockObservers = new IPhoneStockObservers();
-        IObservable macbookStockObservers = new MacbookStockObservers();
-        IObserver user = new UserObserver();
-        IObserver tv = new TVObserver();
-        IObserver display = new DisplayObserver();
+//        IObservable iPhoneStockObservers = new IPhoneStockObservers();
+//        IObservable macbookStockObservers = new MacbookStockObservers();
+//        IObserver user = new UserObserver();
+//        IObserver tv = new TVObserver();
+//        IObserver display = new DisplayObserver();
+//
+//        iPhoneStockObservers.addObserver(user);
+//        iPhoneStockObservers.addObserver(tv);
+//
+//        macbookStockObservers.addObserver(user);
+//        macbookStockObservers.addObserver(display);
+//
+//        iPhoneStockObservers.notifyObservers("Hello iphone stocks are back");
+//        macbookStockObservers.notifyObservers("Hello macbook stocks are back");
+//
+//        iPhoneStockObservers.removeObserver(user);
+//        System.out.println("After removal of user from iphonestockobserver");
+//        iPhoneStockObservers.notifyObservers("Hello iphone stocks are back");
 
-        iPhoneStockObservers.addObserver(user);
-        iPhoneStockObservers.addObserver(tv);
-
-        macbookStockObservers.addObserver(user);
-        macbookStockObservers.addObserver(display);
-
-        iPhoneStockObservers.notifyObservers("Hello iphone stocks are back");
-        macbookStockObservers.notifyObservers("Hello macbook stocks are back");
-
-        iPhoneStockObservers.removeObserver(user);
-        System.out.println("After removal of user from iphonestockobserver");
-        iPhoneStockObservers.notifyObservers("Hello iphone stocks are back");
+        AbstractBasePizza pizza = new MargheritaPizza();
+        pizza = new ExtraCheese(pizza);
+        pizza = new ExtraMushroom(pizza);
+        pizza = new ExtraOregano(pizza);
+        System.out.println("The final cost of Pizza is: " + pizza.cost());
     }
 }
