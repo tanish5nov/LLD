@@ -1,3 +1,9 @@
+import DesignPatterns.AbstractFactoryPattern.Car;
+import DesignPatterns.AbstractFactoryPattern.CarFactories.CarFactory;
+import DesignPatterns.AbstractFactoryPattern.CarFactories.EconomyCarFactory;
+import DesignPatterns.AbstractFactoryPattern.CarFactories.LuxuryCarFactory;
+import DesignPatterns.AbstractFactoryPattern.CarTypes;
+import DesignPatterns.AbstractFactoryPattern.Retailer;
 import DesignPatterns.DecoratorPattern.BasePizza.AbstractBasePizza;
 import DesignPatterns.DecoratorPattern.BasePizza.FarmhousePizza;
 import DesignPatterns.DecoratorPattern.BasePizza.MargheritaPizza;
@@ -46,12 +52,20 @@ public class Main {
 //        pizza = new ExtraOregano(pizza);
 //        System.out.println("The final cost of Pizza is: " + pizza.cost());
 
-        VehicleProduct bike = VehicleFactory.createVehicle("Bike");
-        bike.run();
-        System.out.println(bike.getName());
-        VehicleProduct car = VehicleFactory.createVehicle("Car");
-        car.run();;
-        System.out.println(car.getName());
-        VehicleProduct truck = VehicleFactory.createVehicle("truck");
+//        VehicleProduct bike = VehicleFactory.createVehicle("Bike");
+//        bike.run();
+//        System.out.println(bike.getName());
+//        VehicleProduct car = VehicleFactory.createVehicle("Car");
+//        car.run();;
+//        System.out.println(car.getName());
+//        VehicleProduct truck = VehicleFactory.createVehicle("truck");
+
+        Car economy = Retailer.buyCar(CarTypes.ECONOMY.getValue());
+        Car luxury = Retailer.buyCar(CarTypes.LUXURY.getValue());
+
+        System.out.println(economy.checkTyres());
+        System.out.println(economy.checkEngine());
+        System.out.println(luxury.checkEngine());
+        System.out.println(luxury.checkSeats());
     }
 }
