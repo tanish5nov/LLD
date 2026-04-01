@@ -4,6 +4,8 @@ import DesignPatterns.DecoratorPattern.BasePizza.MargheritaPizza;
 import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraCheese;
 import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraMushroom;
 import DesignPatterns.DecoratorPattern.PizzaDecorator.ExtraOregano;
+import DesignPatterns.FactoryPattern.Factory.VehicleFactory;
+import DesignPatterns.FactoryPattern.Vehicle.VehicleProduct;
 import DesignPatterns.ObserverPattern.Observable.IObservable;
 import DesignPatterns.ObserverPattern.Observable.IPhoneStockObservers;
 import DesignPatterns.ObserverPattern.Observable.MacbookStockObservers;
@@ -38,10 +40,18 @@ public class Main {
 //        System.out.println("After removal of user from iphonestockobserver");
 //        iPhoneStockObservers.notifyObservers("Hello iphone stocks are back");
 
-        AbstractBasePizza pizza = new MargheritaPizza();
-        pizza = new ExtraCheese(pizza);
-        pizza = new ExtraMushroom(pizza);
-        pizza = new ExtraOregano(pizza);
-        System.out.println("The final cost of Pizza is: " + pizza.cost());
+//        AbstractBasePizza pizza = new MargheritaPizza();
+//        pizza = new ExtraCheese(pizza);
+//        pizza = new ExtraMushroom(pizza);
+//        pizza = new ExtraOregano(pizza);
+//        System.out.println("The final cost of Pizza is: " + pizza.cost());
+
+        VehicleProduct bike = VehicleFactory.createVehicle("Bike");
+        bike.run();
+        System.out.println(bike.getName());
+        VehicleProduct car = VehicleFactory.createVehicle("Car");
+        car.run();;
+        System.out.println(car.getName());
+        VehicleProduct truck = VehicleFactory.createVehicle("truck");
     }
 }
