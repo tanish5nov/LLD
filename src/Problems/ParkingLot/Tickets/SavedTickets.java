@@ -5,9 +5,10 @@ import Problems.ParkingLot.Vehicles.Vehicle;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class SavedTickets {
-    public static Map<Vehicle, Ticket> tickets = new HashMap<>();
+    public static Map<Vehicle, Ticket> tickets = new TreeMap<>();
 
     public static Ticket getTicket(Vehicle vehicle) {
         if(tickets.containsKey(vehicle)) {
